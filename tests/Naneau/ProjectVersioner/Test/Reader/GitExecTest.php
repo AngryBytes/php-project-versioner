@@ -61,7 +61,9 @@ class GitExecTest extends \PHPUnit\Framework\TestCase
         self::execWithDir(['rm -rf %s', 'mkdir %s']);
         self::execInDir([
             'touch testfile',
-            'git init'
+            'git init',
+            'git config user.email "php@unit.test"',
+            'git config user.name "PHPUnit"'
         ]);
 
         // Add commits, with matching tags
