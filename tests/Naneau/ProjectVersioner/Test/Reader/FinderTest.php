@@ -41,7 +41,7 @@ class FinderTest extends \PHPUnit\Framework\TestCase
         $versioner = new Versioner([new MTimeReader()]);
 
         // Set the time to now for one  of the files
-        $time = time();
+        $time = 1620389023;
         touch($directory . '/DirectoryOne/FileFour.txt', $time);
 
         self::assertEquals($time, $versioner->get($directory));
@@ -59,7 +59,7 @@ class FinderTest extends \PHPUnit\Framework\TestCase
         $finderPhp->name('*.php');
         $versionerPhp = new Versioner([new MTimeReader(null, $finderPhp)]);
 
-        $timeThree = time();
+        $timeThree = 1620389023;
         $timeFour = $timeThree - 10;
 
         touch($directory . '/DirectoryOne/FileThree.php', $timeThree);
@@ -77,7 +77,7 @@ class FinderTest extends \PHPUnit\Framework\TestCase
         $finder->name('*.txt');
         $versioner = new Versioner([new MTimeReader('*.php', $finder)]);
 
-        $timeThree = time();
+        $timeThree = 1620389023;
         $timeFour = $timeThree - 10;
 
         touch($directory . '/DirectoryOne/FileThree.php', $timeThree);
