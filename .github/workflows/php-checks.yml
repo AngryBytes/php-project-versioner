@@ -5,7 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        php-versions: ['7.2', '7.3', '7.4']
+        php-versions: ['7.3', '7.4', '8.0']
     name: PHP ${{ matrix.php-versions }} tests
     steps:
       - name: Checkout
@@ -30,6 +30,9 @@ jobs:
 
       - name: Run Composer install
         run: composer install --prefer-dist
+
+      - name: Set default Git branch name
+        run: git config --global init.defaultBranch main
 
       - name: Run PHP checks
         run: composer phpcheck
