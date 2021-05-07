@@ -6,7 +6,6 @@ use Naneau\ProjectVersioner\Reader\Finder\MTime as MTimeReader;
 use Naneau\ProjectVersioner\Reader\Finder\Contents as ContentsReader;
 
 use Symfony\Component\Finder\Finder;
-use Exception;
 
 class FinderTest extends \PHPUnit\Framework\TestCase
 {
@@ -63,13 +62,8 @@ class FinderTest extends \PHPUnit\Framework\TestCase
         $timeThree = time();
         $timeFour = $timeThree - 10;
 
-        if (!touch($directory . '/DirectoryOne/FileThree.php', $timeThree)) {
-            throw new Exception('Failed to update touch time to ' . $timeThree . ' for file "FileThree.php"');
-        }
-
-        if (!touch($directory . '/DirectoryOne/FileFour.txt', $timeFour)) {
-            throw new Exception('Failed to update touch time to ' . $timeFour . ' for file "FileFour.txt"');
-        }
+        touch($directory . '/DirectoryOne/FileThree.php', $timeThree);
+        touch($directory . '/DirectoryOne/FileFour.txt', $timeFour);
 
         self::assertEquals($timeThree, $versionerPhp->get($directory));
         self::assertEquals($timeFour, $versionerTxt->get($directory));
