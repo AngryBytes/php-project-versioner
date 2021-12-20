@@ -28,11 +28,11 @@
   },
   "scripts": {
     "phpcheck": [
-      "./vendor/bin/phpstan analyse -l max --memory-limit=1G src/",
-      "./vendor/bin/phpcs -p --standard=PSR2 --extensions=php src/"
+      "./vendor/bin/phpstan analyse -c phpstan.neon -l max --memory-limit=1G src/ tests/",
+      "./vendor/bin/phpcs -p --standard=PSR2 --extensions=php src/ tests/"
     ],
     "phpcbf": [
-      "./vendor/bin/phpcbf -p --standard=PSR2 --extensions=php src/"
+      "./vendor/bin/phpcbf -p --standard=PSR2 --extensions=php src/ tests/"
     ],
     "phpunit": [
       "./vendor/bin/phpunit"
@@ -40,13 +40,13 @@
   },
   "minimum-stability": "stable",
   "require": {
+    "php": "7.4.* || 8.0.* || 8.1.*",
     "ext-json": "*",
-    "php": "7.3.* || 7.4.* || 8.0.*",
-    "symfony/finder": "~4.4"
+    "symfony/finder": "^5.0.0"
   },
   "require-dev": {
-    "phpstan/phpstan": "0.12.34",
-    "phpunit/phpunit": "~8.5",
-    "squizlabs/php_codesniffer": "^3.5"
+    "phpstan/phpstan": "1.2.0",
+    "phpunit/phpunit": "9.5.10",
+    "squizlabs/php_codesniffer": "3.6.2"
   }
 }
