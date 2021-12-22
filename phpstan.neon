@@ -1,7 +1,7 @@
 parameters:
-	ignoreErrors:
-		-
-			message: "#^Unreachable statement \\- code above always terminates\\.$#"
-			count: 1
-			path: tests/Naneau/ProjectVersioner/Test/Reader/FinderTest.php
+  ignoreErrors:
+    -
+      message: "#^Unreachable statement \\- code above always terminates\\.$#"
+      count: 1
+      path: tests/Naneau/ProjectVersioner/Test/Reader/FinderTest.php
 
