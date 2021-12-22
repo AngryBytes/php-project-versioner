@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.0.0
+
+### PHP support
+
+- Dropped support for PHP `7.3`.
+- Added support for PHP `8.1`.
+
+### 3rd party updates
+
+- Updated `symfony/finder` to version `5`.
+
 ## 1.2.0
 
 ### PHP support
