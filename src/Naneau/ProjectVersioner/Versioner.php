@@ -18,7 +18,7 @@ class Versioner
      *
      * @var Reader[]
      */
-    private $readers;
+    private array $readers;
 
     /**
      * Constructor
@@ -32,10 +32,8 @@ class Versioner
 
     /**
      * Get the version for a directory
-     *
-     * @return string|int|null
      */
-    public function get(string $directory)
+    public function get(string $directory): int|string|null
     {
         foreach ($this->getReaders() as $reader) {
             if ($reader->canRead($directory)) {

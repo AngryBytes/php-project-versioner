@@ -9,7 +9,7 @@ use Naneau\ProjectVersioner\Reader\Git\Tag\Exec as GitTagExecReader;
 class GitExecTest extends \PHPUnit\Framework\TestCase
 {
     /**
-     * Test reading of latest commit
+     * Test reading of the latest commit
      */
     public function testShortCommitRead(): void
     {

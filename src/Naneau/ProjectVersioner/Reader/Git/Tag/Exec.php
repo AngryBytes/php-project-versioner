@@ -6,9 +6,9 @@ use Naneau\ProjectVersioner\Reader\Git\Exec as GitExec;
 /**
  * Exec
  *
- * Reads the latest tag reachable from the current commit
+ * Reads the latest tag, reachable from the current commit
  *
- * For example: 3.0.2
+ * For example, 3.0.2
  *
  * @see http://git-scm.com/docs/git-describe
  */

@@ -1,6 +1,7 @@
 <?php
 namespace Naneau\ProjectVersioner\Reader;
 
+use JsonException;
 use Naneau\ProjectVersioner\ReaderInterface;
 
 use stdClass;
@@ -15,10 +16,8 @@ class ComposerPackage implements ReaderInterface
 {
     /**
      * The page name to look for
-     *
-     * @var string
      */
-    private $package;
+    private string $package;
 
     public function __construct(string $package)
     {
@@ -46,7 +45,7 @@ class ComposerPackage implements ReaderInterface
     /**
      * {@inheritdoc}
      */
-    public function read(string $directory)
+    public function read(string $directory): int|string|null
     {
         $package = $this->getPackageFromLockFile($directory);
 
@@ -88,7 +87,12 @@ class ComposerPackage implements ReaderInterface
             return null;
         }
 
-        $parsed = json_decode($contents, false);
+        try {
+            $parsed = json_decode($contents, false, 512, JSON_THROW_ON_ERROR);
+        } catch (JsonException) {
+            return null;
+        }
+
         if (!isset($parsed->packages)) {
             return null;
         }

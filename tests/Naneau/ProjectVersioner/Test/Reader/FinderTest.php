@@ -15,7 +15,7 @@ class FinderTest extends \PHPUnit\Framework\TestCase
 
         $versioner = new Versioner([new MTimeReader('*.txt')]);
 
-        // Set the time to now for one  of the files
+        // Set the time to now for one of the files
         $time = time();
         touch($directory . '/DirectoryOne/FileFour.txt', $time);
 
@@ -40,7 +40,7 @@ class FinderTest extends \PHPUnit\Framework\TestCase
 
         $versioner = new Versioner([new MTimeReader()]);
 
-        // Set the time to now for one  of the files
+        // Set the time to now for one of the files
         $time = time();
         touch($directory . '/DirectoryOne/FileFour.txt', $time);
 

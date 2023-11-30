@@ -8,16 +8,14 @@ use Symfony\Component\Finder\Finder as SfFinder;
 /**
  * Finder
  *
- * Base class for finder based readers
+ * Base class for finder-based readers
  */
 abstract class Finder implements ReaderInterface
 {
     /**
      * the finder
-     *
-     * @var SfFinder
      */
-    private $finder;
+    private SfFinder $finder;
 
     public function __construct(?string $name = null, ?SfFinder $finder = null)
     {
