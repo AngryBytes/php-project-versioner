@@ -7,6 +7,10 @@
 - Dropped support for PHP `8.0` and lower.
 - Added support for PHP `8.3`.
 
+### 3rd party updates
+
+- Updated `symfony/finder` to version `6`.
+
 ## 2.0.1
 
 ### PHP support
