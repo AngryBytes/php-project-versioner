@@ -14,10 +14,8 @@ class Exec extends GitExec
 {
     /**
      * Use short hash?
-     *
-     * @var bool
      */
-    private $short = true;
+    private bool $short = true;
 
     public function __construct(bool $short = true)
     {

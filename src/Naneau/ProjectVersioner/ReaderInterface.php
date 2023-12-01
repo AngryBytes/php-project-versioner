@@ -15,8 +15,6 @@ interface ReaderInterface
 
     /**
      * Read the version from a directory
-     *
-     * @return string|int|null
      */
-    public function read(string $directory);
+    public function read(string $directory): int|string|null;
 }

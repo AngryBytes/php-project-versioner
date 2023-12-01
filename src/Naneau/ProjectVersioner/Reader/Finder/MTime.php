@@ -11,7 +11,7 @@ class MTime extends Finder
     /**
      * {@inheritdoc}
      */
-    public function read(string $directory)
+    public function read(string $directory): int|string|null
     {
         $highest = 0;
         foreach ($this->getFinder() as $file) {

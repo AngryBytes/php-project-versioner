@@ -8,7 +8,7 @@ use RuntimeException;
 /**
  * Exec
  *
- * Base class for exec based git reading
+ * Base class for exec-based git reading
  */
 abstract class Exec implements ReaderInterface
 {
@@ -26,7 +26,7 @@ abstract class Exec implements ReaderInterface
     /**
      * {@inheritDoc}
      */
-    public function read(string $directory)
+    public function read(string $directory): int|string|null
     {
         return $this->exec(
             $this->getCommandForDirectory($directory)
@@ -63,7 +63,7 @@ abstract class Exec implements ReaderInterface
     }
 
     /**
-     * Execute a git command and return first line of output
+     * Execute a git command and return the first line of output
      */
     private function exec(string $command): string
     {

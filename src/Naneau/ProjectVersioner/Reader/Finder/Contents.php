@@ -11,7 +11,7 @@ class Contents extends Finder
     /**
      * {@inheritdoc}
      */
-    public function read(string $directory)
+    public function read(string $directory): string
     {
         $hash = '';
         foreach ($this->getFinder() as $file) {

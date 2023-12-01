@@ -33,7 +33,7 @@ class File implements ReaderInterface
     /**
      * {@inheritdoc}
      */
-    public function read(string $directory)
+    public function read(string $directory): int|string|null
     {
         $contents = file_get_contents($directory . DIRECTORY_SEPARATOR . $this->getFile());
         if (!$contents) {

@@ -1,6 +1,7 @@
 <?php
 namespace Naneau\ProjectVersioner\Reader;
 
+use JsonException;
 use Naneau\ProjectVersioner\ReaderInterface;
 
 use stdClass;
@@ -21,14 +22,19 @@ class ComposerJson implements ReaderInterface
     /**
      * {@inheritdoc}
      */
-    public function read(string $directory)
+    public function read(string $directory): int|string|null
     {
         $json = @file_get_contents($directory . '/composer.json');
         if (!$json) {
             return null;
         }
 
-        $json = json_decode($json, false);
+        try {
+            $json = json_decode($json, false, 512, JSON_THROW_ON_ERROR);
+        } catch (JsonException) {
+            return null;
+        }
+
         if (!($json instanceof stdClass) || empty($json->version)) {
             return null;
         }

@@ -6,7 +6,7 @@ use Naneau\ProjectVersioner\ReaderInterface;
 /**
  * Composer
  *
- * Finds version from composer lock file
+ * Finds the version from composer lock file
  */
 class Composer implements ReaderInterface
 {
@@ -21,7 +21,7 @@ class Composer implements ReaderInterface
     /**
      * {@inheritdoc}
      */
-    public function read(string $directory)
+    public function read(string $directory): int|string|null
     {
         $contents = file_get_contents($directory . '/composer.lock');
         if (!$contents) {
