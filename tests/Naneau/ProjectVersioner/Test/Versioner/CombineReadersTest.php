@@ -1,4 +1,5 @@
 <?php
+
 namespace Naneau\ProjectVersioner\Test\Versioner;
 
 use Naneau\ProjectVersioner\Versioner;
@@ -13,7 +14,7 @@ class CombineReadersTest extends \PHPUnit\Framework\TestCase
         $readers = [
             new ComposerPackageReader('symfony/filesystem'),
             new ComposerReader(),
-            new FileReader('VERSION')
+            new FileReader('VERSION'),
         ];
 
         $versioner = new Versioner($readers);
@@ -31,7 +32,7 @@ class CombineReadersTest extends \PHPUnit\Framework\TestCase
         $readers = [
             new FileReader('VERSION'),
             new ComposerPackageReader('symfony/filesystem'),
-            new ComposerReader()
+            new ComposerReader(),
         ];
 
         $versioner = new Versioner($readers);
@@ -49,7 +50,7 @@ class CombineReadersTest extends \PHPUnit\Framework\TestCase
         $readers = [
             new ComposerPackageReader('symfony/filesystem'),
             new ComposerReader(),
-            new FileReader('VERSION')
+            new FileReader('VERSION'),
         ];
 
         $versioner = new Versioner($readers);
@@ -68,7 +69,7 @@ class CombineReadersTest extends \PHPUnit\Framework\TestCase
         $readers = [
             new FileReader('VERSION'),
             new ComposerPackageReader('symfony/filesystem'),
-            new ComposerReader()
+            new ComposerReader(),
         ];
         $versioner = new Versioner($readers);
 
@@ -82,7 +83,7 @@ class CombineReadersTest extends \PHPUnit\Framework\TestCase
 
     public function testHasAVersion(): void
     {
-        $versioner = new Versioner;
+        $versioner = new Versioner();
 
         // This one should have a version
         $versioner->setReaders(

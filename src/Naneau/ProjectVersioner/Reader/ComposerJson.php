@@ -1,9 +1,9 @@
 <?php
+
 namespace Naneau\ProjectVersioner\Reader;
 
 use JsonException;
 use Naneau\ProjectVersioner\ReaderInterface;
-
 use stdClass;
 
 /**

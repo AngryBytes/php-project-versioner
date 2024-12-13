@@ -1,4 +1,5 @@
 <?php
+
 namespace Naneau\ProjectVersioner\Test\Reader;
 
 use Naneau\ProjectVersioner\Versioner;
@@ -12,7 +13,7 @@ class ComposerTest extends \PHPUnit\Framework\TestCase
     {
         $directory = __DIR__ . '/../../../../projects/composer';
 
-        $readers = [new ComposerReader];
+        $readers = [new ComposerReader()];
 
         $versioner = new Versioner($readers);
 
@@ -34,7 +35,7 @@ class ComposerTest extends \PHPUnit\Framework\TestCase
     {
         $directory = __DIR__ . '/../../../../projects/composer';
 
-        $readers = [new ComposerJsonReader];
+        $readers = [new ComposerJsonReader()];
 
         $versioner = new Versioner($readers);
 

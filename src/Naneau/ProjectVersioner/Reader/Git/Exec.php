@@ -1,8 +1,8 @@
 <?php
+
 namespace Naneau\ProjectVersioner\Reader\Git;
 
 use Naneau\ProjectVersioner\ReaderInterface;
-
 use RuntimeException;
 
 /**

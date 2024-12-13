@@ -1,9 +1,9 @@
 <?php
+
 namespace Naneau\ProjectVersioner;
 
 use Naneau\ProjectVersioner\ReaderInterface as Reader;
-
-use \RuntimeException;
+use RuntimeException;
 
 /**
  * Versioner

@@ -1,4 +1,5 @@
 <?php
+
 namespace Naneau\ProjectVersioner\Test\Reader;
 
 use Naneau\ProjectVersioner\Versioner;
@@ -16,7 +17,7 @@ class GitExecTest extends \PHPUnit\Framework\TestCase
         $versionOutput = self::execInDir(['git rev-parse --short HEAD']);
         $version = $versionOutput[0];
 
-        $versioner = new Versioner([new GitCommitExecReader]);
+        $versioner = new Versioner([new GitCommitExecReader()]);
 
         self::assertEquals($version, $versioner->get(self::getDirectory()));
     }
@@ -42,14 +43,14 @@ class GitExecTest extends \PHPUnit\Framework\TestCase
         $versionOutput = self::execInDir(['git describe']);
         $version = $versionOutput[0];
 
-        $versioner = new Versioner([new GitDescribeExecReader]);
+        $versioner = new Versioner([new GitDescribeExecReader()]);
 
         self::assertEquals($version, $versioner->get(self::getDirectory()));
     }
 
     public function testTagRead(): void
     {
-        $versioner = new Versioner([new GitTagExecReader]);
+        $versioner = new Versioner([new GitTagExecReader()]);
         self::assertEquals('0.0.2', $versioner->get(self::getDirectory()));
     }
 
@@ -63,7 +64,7 @@ class GitExecTest extends \PHPUnit\Framework\TestCase
             'touch testfile',
             'git init',
             'git config user.email "php@unit.test"',
-            'git config user.name "PHPUnit"'
+            'git config user.name "PHPUnit"',
         ]);
 
         // Add commits, with matching tags
@@ -79,7 +80,7 @@ class GitExecTest extends \PHPUnit\Framework\TestCase
                 // Not in tag
                 sprintf('touch test.%d.notag', $x),
                 sprintf('git add test.%d.notag', $x),
-                sprintf('git commit -m "commit %d no tag"', $x)
+                sprintf('git commit -m "commit %d no tag"', $x),
             ]);
         }
     }

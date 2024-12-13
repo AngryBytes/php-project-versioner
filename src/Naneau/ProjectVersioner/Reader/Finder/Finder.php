@@ -1,8 +1,8 @@
 <?php
+
 namespace Naneau\ProjectVersioner\Reader\Finder;
 
 use Naneau\ProjectVersioner\ReaderInterface;
-
 use Symfony\Component\Finder\Finder as SfFinder;
 
 /**
@@ -21,7 +21,7 @@ abstract class Finder implements ReaderInterface
     {
         // Create finder if not given
         if ($finder === null) {
-            $finder = new SfFinder;
+            $finder = new SfFinder();
         }
 
         // Set name if given

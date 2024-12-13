@@ -1,4 +1,5 @@
 <?php
+
 namespace Naneau\ProjectVersioner\Reader\Git\Describe;
 
 use Naneau\ProjectVersioner\Reader\Git\Exec as GitExec;

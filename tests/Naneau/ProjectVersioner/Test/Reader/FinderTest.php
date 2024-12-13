@@ -1,10 +1,10 @@
 <?php
+
 namespace Naneau\ProjectVersioner\Test\Reader;
 
 use Naneau\ProjectVersioner\Versioner;
 use Naneau\ProjectVersioner\Reader\Finder\MTime as MTimeReader;
 use Naneau\ProjectVersioner\Reader\Finder\Contents as ContentsReader;
-
 use Symfony\Component\Finder\Finder;
 
 class FinderTest extends \PHPUnit\Framework\TestCase
@@ -27,7 +27,7 @@ class FinderTest extends \PHPUnit\Framework\TestCase
         $versioner = new Versioner([new ContentsReader('*.php')]);
 
         self::assertEquals(
-            'db9d80',
+            'd35015',
             $versioner->get(
                 __DIR__ . '/../../../../projects/finder'
             )
@@ -56,11 +56,11 @@ class FinderTest extends \PHPUnit\Framework\TestCase
 
         $directory = __DIR__ . '/../../../../projects/finder';
 
-        $finderTxt = new Finder;
+        $finderTxt = new Finder();
         $finderTxt->name('*.txt');
         $versionerTxt = new Versioner([new MTimeReader(null, $finderTxt)]);
 
-        $finderPhp = new Finder;
+        $finderPhp = new Finder();
         $finderPhp->name('*.php');
         $versionerPhp = new Versioner([new MTimeReader(null, $finderPhp)]);
 
@@ -78,7 +78,7 @@ class FinderTest extends \PHPUnit\Framework\TestCase
     {
         $directory = __DIR__ . '/../../../../projects/finder';
 
-        $finder = new Finder;
+        $finder = new Finder();
         $finder->name('*.txt');
         $versioner = new Versioner([new MTimeReader('*.php', $finder)]);
 

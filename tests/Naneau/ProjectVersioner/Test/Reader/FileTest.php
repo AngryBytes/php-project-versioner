@@ -1,4 +1,5 @@
 <?php
+
 namespace Naneau\ProjectVersioner\Test\Reader;
 
 use Naneau\ProjectVersioner\Versioner;

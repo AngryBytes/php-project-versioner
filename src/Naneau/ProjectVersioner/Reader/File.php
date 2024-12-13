@@ -1,4 +1,5 @@
 <?php
+
 namespace Naneau\ProjectVersioner\Reader;
 
 use Naneau\ProjectVersioner\ReaderInterface;
